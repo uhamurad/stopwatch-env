@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+
+    composer:
+        build:
+            context: ./docker-context
+            dockerfile: composer/Dockerfile
+        environment:
+            - COMPOSER_ALLOW_XDEBUG=0
+            - PHP_ENABLE_XDEBUG=0
+        volumes:
+            - ../stopwatch/:/app
+            # Composer cache
+            - ~/.composer-docker/cache:/root/.composer/cache:delegated
+
