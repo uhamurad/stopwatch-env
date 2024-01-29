@@ -13,4 +13,11 @@ services:
             - ../stopwatch/:/app
             # Composer cache
             - ~/.composer-docker/cache:/root/.composer/cache:delegated
+    
+    php-unit:
+        build:
+            context: ./docker-context
+            dockerfile: php-unit/Dockerfile
+        volumes:
+            - ../stopwatch/:/app
 
