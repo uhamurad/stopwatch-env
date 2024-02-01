@@ -2,6 +2,15 @@ version: '3.2'
 
 services:
 
+    xdebug:
+        build:
+            context: ./docker-context
+            dockerfile: xdebug/Dockerfile
+        volumes:
+            - ../stopwatch/:/app
+            # xdebug logs
+            - ./data/xdebug/logs/:/tmp/xdebug
+            
     composer:
         build:
             context: ./docker-context
