@@ -9,7 +9,9 @@ services:
         volumes:
             - ../stopwatch/:/app
             # xdebug logs
-            - ./data/xdebug/logs/:/tmp/xdebug
+            - ./data/xdebug/:/tmp/xdebug
+            # xdebug settings
+            - ./docker-context/xdebug/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
             
     composer:
         build:
