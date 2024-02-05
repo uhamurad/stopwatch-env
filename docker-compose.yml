@@ -9,6 +9,13 @@ services:
         volumes:
             - ../stopwatch/:/app
             
+    php-cs-fixer:
+        build:
+            context: ./docker-context
+            dockerfile: php-cs-fixer/Dockerfile
+        volumes:
+            - ../stopwatch/:/app
+            
     xdebug:
         build:
             context: ./docker-context

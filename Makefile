@@ -22,3 +22,8 @@ php-unit-run:
 
 phpstan-run:
 	docker-compose run --rm phpstan analyse
+
+php-cs-fixer:
+	docker-compose run --rm php-cs-fixer fix --config .php-cs-fixer.dist.php --allow-risky=yes
+
+ci: php-cs-fixer phpstan-run php-unit-run
