@@ -14,6 +14,9 @@ clear-data-dirs:
 composer-install:
 	docker-compose run --rm composer composer install
 
+composer-validate:
+	docker-compose run --rm composer composer validate
+
 composer-dump-autoload:
 	docker-compose run --rm composer composer dump-autoload
 
@@ -26,4 +29,4 @@ phpstan-run:
 php-cs-fixer:
 	docker-compose run --rm php-cs-fixer fix --config .php-cs-fixer.dist.php --allow-risky=yes
 
-ci: php-cs-fixer phpstan-run php-unit-run
+ci: composer-validate php-cs-fixer phpstan-run php-unit-run
