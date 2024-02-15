@@ -45,4 +45,5 @@ services:
             dockerfile: php-unit/Dockerfile
         volumes:
             - ../stopwatch/:/app
+            - ./data/php-unit/coverage/report/:/tmp/coverage/report
 

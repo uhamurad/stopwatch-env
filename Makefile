@@ -21,7 +21,7 @@ composer-dump-autoload:
 	docker-compose run --rm composer composer dump-autoload
 
 php-unit-run:
-	docker-compose run --rm php-unit ./vendor/bin/phpunit tests
+	docker-compose run --rm php-unit ./vendor/bin/phpunit --coverage-html /tmp/coverage/report
 
 phpstan-run:
 	docker-compose run --rm phpstan analyse
