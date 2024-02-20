@@ -7,21 +7,21 @@ services:
             context: ./docker-context
             dockerfile: phpstan/Dockerfile
         volumes:
-            - ../stopwatch/:/app
+            - ${STOPWATCH_DIR}/:/app
             
     php-cs-fixer:
         build:
             context: ./docker-context
             dockerfile: php-cs-fixer/Dockerfile
         volumes:
-            - ../stopwatch/:/app
+            - ${STOPWATCH_DIR}/:/app
             
     xdebug:
         build:
             context: ./docker-context
             dockerfile: xdebug/Dockerfile
         volumes:
-            - ../stopwatch/:/app
+            - ${STOPWATCH_DIR}/:/app
             # xdebug logs
             - ./data/xdebug/:/tmp/xdebug
             # xdebug settings
@@ -35,7 +35,7 @@ services:
             - COMPOSER_ALLOW_XDEBUG=0
             - PHP_ENABLE_XDEBUG=0
         volumes:
-            - ../stopwatch/:/app
+            - ${STOPWATCH_DIR}/:/app
             # Composer cache
             - ~/.composer-docker/cache:/root/.composer/cache:delegated
     
@@ -44,6 +44,6 @@ services:
             context: ./docker-context
             dockerfile: php-unit/Dockerfile
         volumes:
-            - ../stopwatch/:/app
+            - ${STOPWATCH_DIR}/:/app
             - ./data/php-unit/coverage/report/:/tmp/coverage/report
 
