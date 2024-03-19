@@ -39,6 +39,17 @@ services:
             # Composer cache
             - ~/.composer-docker/cache:/root/.composer/cache:delegated
     
+    rector:
+        build:
+            context: ./docker-context
+            dockerfile: rector/Dockerfile
+        environment:
+            - PHP_ENABLE_XDEBUG=0
+        volumes:
+            - ${STOPWATCH_DIR}/:/app
+            # Composer cache
+            - ~/.composer-docker/cache:/root/.composer/cache:delegated
+    
     php-unit:
         build:
             context: ./docker-context

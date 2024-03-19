@@ -28,8 +28,12 @@ tasks:
   php-cs-fixer:
     - docker-compose run --rm php-cs-fixer fix --config .php-cs-fixer.dist.php --allow-risky=yes
   
+  rector:
+    docker-compose run --rm rector php /rector-standalone/vendor/bin/rector --config /app/rector.dist.php
+  
   ci:
     - task: composer-validate
+    - task: rector
     - task: php-cs-fixer
     - task: phpstan-run
     - task: php-unit-run
