@@ -29,7 +29,7 @@ tasks:
     - docker-compose run --rm php-cs-fixer fix --config .php-cs-fixer.dist.php --allow-risky=yes
   
   rector:
-    docker-compose run --rm rector php /rector-standalone/vendor/bin/rector --config /app/rector.dist.php
+    docker-compose run --rm rector php /rector/vendor/bin/rector --config /app/rector.dist.php
   
   ci:
     - task: composer-validate

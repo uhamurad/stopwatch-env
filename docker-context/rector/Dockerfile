@@ -9,8 +9,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 RUN mv /usr/local/bin/composer.phar /usr/local/bin/composer
 
 # see https://getrector.com/documentation/how-to-run-on-php-53
-RUN mkdir /rector-standalone
-RUN cd /rector-standalone && composer require rector/rector --dev
+RUN mkdir /rector && cd /rector && composer require rector/rector --dev
 
 WORKDIR /app
 
