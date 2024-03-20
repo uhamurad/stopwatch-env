@@ -50,6 +50,17 @@ services:
             # Composer cache
             - ~/.composer-docker/cache:/root/.composer/cache:delegated
     
+    swiss-knife:
+        build:
+            context: ./docker-context
+            dockerfile: swiss-knife/Dockerfile
+        environment:
+            - PHP_ENABLE_XDEBUG=0
+        volumes:
+            - ${STOPWATCH_DIR}/:/app
+            # Composer cache
+            - ~/.composer-docker/cache:/root/.composer/cache:delegated
+            
     php-unit:
         build:
             context: ./docker-context

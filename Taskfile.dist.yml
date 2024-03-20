@@ -31,8 +31,12 @@ tasks:
   rector:
     docker-compose run --rm rector php /rector/vendor/bin/rector --config /app/rector.dist.php
   
+  swiss-knife:
+    docker-compose run --rm swiss-knife php /swiss-knife/vendor/bin/swiss-knife finalize-classes /app/src /app/tests
+  
   ci:
     - task: composer-validate
+    - task: swiss-knife
     - task: rector
     - task: php-cs-fixer
     - task: phpstan-run
