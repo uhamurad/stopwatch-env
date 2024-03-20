@@ -1,3 +1,3 @@
 # Stopwatch Env
 
-Depelopment environment for Stopwatch
+Development environment for Stopwatch
