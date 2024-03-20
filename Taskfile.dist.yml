@@ -19,10 +19,10 @@ tasks:
   composer-dump-autoload:
     - docker-compose run --rm composer composer dump-autoload
   
-  php-unit-run:
+  php-unit:
     - docker-compose run --rm php-unit ./vendor/bin/phpunit --coverage-html /tmp/coverage/report
   
-  phpstan-run:
+  phpstan:
     - docker-compose run --rm phpstan analyse
   
   php-cs-fixer:
@@ -39,5 +39,5 @@ tasks:
     - task: swiss-knife
     - task: rector
     - task: php-cs-fixer
-    - task: phpstan-run
-    - task: php-unit-run
+    - task: phpstan
+    - task: php-unit
