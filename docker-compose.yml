@@ -2,10 +2,10 @@ version: '3.2'
 
 services:
     
-    phpstan:
+    php-stan:
         build:
             context: ./docker-context
-            dockerfile: phpstan/Dockerfile
+            dockerfile: php-stan/Dockerfile
         volumes:
             - ${STOPWATCH_DIR}/:/app:ro
             

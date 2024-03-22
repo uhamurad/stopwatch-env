@@ -25,23 +25,23 @@ tasks:
   php-unit-8:
     - docker-compose run --rm php-unit-8 ./vendor/bin/phpunit
   
-  phpstan:
-    - docker-compose run --rm phpstan analyse
+  php-stan:
+    - docker-compose run --rm php-stan analyse
   
   php-cs-fixer:
     - docker-compose run --rm php-cs-fixer fix --config .php-cs-fixer.dist.php --allow-risky=yes
   
   rector:
-    docker-compose run --rm rector php /rector/vendor/bin/rector --config /app/rector.dist.php
+    - docker-compose run --rm rector php /rector/vendor/bin/rector --config /app/rector.dist.php
   
   swiss-knife:
-    docker-compose run --rm swiss-knife php /swiss-knife/vendor/bin/swiss-knife finalize-classes /app/src /app/tests
+    - docker-compose run --rm swiss-knife php /swiss-knife/vendor/bin/swiss-knife finalize-classes /app/src /app/tests
   
   ci:
     - task: composer-validate
     - task: swiss-knife
     - task: rector
     - task: php-cs-fixer
-    - task: phpstan
+    - task: php-stan
     - task: php-unit-8
     - task: php-unit
