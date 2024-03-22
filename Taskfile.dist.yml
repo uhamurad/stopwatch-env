@@ -22,6 +22,9 @@ tasks:
   php-unit:
     - docker-compose run --rm php-unit ./vendor/bin/phpunit --coverage-html /tmp/coverage/report
   
+  php-unit-8:
+    - docker-compose run --rm php-unit-8 ./vendor/bin/phpunit
+  
   phpstan:
     - docker-compose run --rm phpstan analyse
   
@@ -40,4 +43,5 @@ tasks:
     - task: rector
     - task: php-cs-fixer
     - task: phpstan
+    - task: php-unit-8
     - task: php-unit

@@ -7,7 +7,7 @@ services:
             context: ./docker-context
             dockerfile: phpstan/Dockerfile
         volumes:
-            - ${STOPWATCH_DIR}/:/app
+            - ${STOPWATCH_DIR}/:/app:ro
             
     php-cs-fixer:
         build:
@@ -21,7 +21,7 @@ services:
             context: ./docker-context
             dockerfile: xdebug/Dockerfile
         volumes:
-            - ${STOPWATCH_DIR}/:/app
+            - ${STOPWATCH_DIR}/:/app:ro
             # xdebug logs
             - ./data/xdebug/:/tmp/xdebug
             # xdebug settings
@@ -66,6 +66,12 @@ services:
             context: ./docker-context
             dockerfile: php-unit/Dockerfile
         volumes:
-            - ${STOPWATCH_DIR}/:/app
+            - ${STOPWATCH_DIR}/:/app:ro
             - ./data/php-unit/coverage/report/:/tmp/coverage/report
 
+    php-unit-8:
+        build:
+            context: ./docker-context
+            dockerfile: php-unit-8/Dockerfile
+        volumes:
+            - ${STOPWATCH_DIR}/:/app:ro
