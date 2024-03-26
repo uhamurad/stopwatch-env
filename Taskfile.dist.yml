@@ -20,7 +20,10 @@ tasks:
     - docker-compose run --rm composer composer dump-autoload
   
   php-unit:
-    - docker-compose run --rm php-unit ./vendor/bin/phpunit --coverage-html /tmp/coverage/report
+    - docker-compose run --rm php-unit ./vendor/bin/phpunit tests/Stopwatch --coverage-html /tmp/coverage/report
+  
+  php-unit-examples:
+    - docker-compose run --rm php-unit ./vendor/bin/phpunit tests/Examples --coverage-html /tmp/coverage/report
   
   php-unit-8:
     - docker-compose run --rm php-unit-8 ./vendor/bin/phpunit
@@ -44,4 +47,5 @@ tasks:
     - task: php-cs-fixer
     - task: php-stan
     - task: php-unit-8
+    - task: php-unit-examples
     - task: php-unit
