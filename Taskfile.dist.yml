@@ -32,7 +32,7 @@ tasks:
     - docker-compose run --rm php-unit-8 ./vendor/bin/phpunit
   
   infection:
-    - docker-compose run --rm infection ./vendor/bin/infection --show-mutations --test-framework-options="--group=infection" --threads=$(nproc)
+    - docker-compose run --rm infection ./vendor/bin/infection --show-mutations --threads=$(nproc)
   
   php-stan:
     - docker-compose run --rm php-stan analyse
@@ -63,3 +63,4 @@ tasks:
     - task: php-unit-8
     - task: php-unit-examples
     - task: php-unit
+    - task: infection
