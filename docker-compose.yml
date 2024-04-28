@@ -83,4 +83,15 @@ services:
         volumes:
             - ${STOPWATCH_DIR}/:/app
             - ./data/infection:/infection
-
+    
+    php-bench:
+        build:
+            context: ./docker-context
+            dockerfile: php-bench/Dockerfile
+        environment:
+            - COMPOSER_ALLOW_XDEBUG=0
+            - PHP_ENABLE_XDEBUG=0
+        volumes:
+            - ${STOPWATCH_DIR}/:/app
+            # Composer cache
+            - ~/.composer-docker/cache:/root/.composer/cache:delegated

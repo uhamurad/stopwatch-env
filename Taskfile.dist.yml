@@ -45,6 +45,9 @@ tasks:
   
   swiss-knife:
     - docker-compose run --rm swiss-knife php /swiss-knife/vendor/bin/swiss-knife finalize-classes /app/src /app/tests
+
+  php-bench:
+    - docker-compose run --rm php-bench ./vendor/bin/phpbench run benchmarks --report=default
   
   ci-dev:
     - task: composer-validate
@@ -64,3 +67,4 @@ tasks:
     - task: php-unit-examples
     - task: php-unit
     - task: infection
+    - task: php-bench
